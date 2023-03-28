@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
 
 export default function FlatButton({ text, onPress }) {
-  const [isActive, setIsActive] = useState(false);
-  const changeOnPress = () => {
-    setIsActive(true);
-    onPress();
-  };
   return (
-    <TouchableOpacity onPress={changeOnPress}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>{text}</Text>
       </View>
@@ -27,9 +22,10 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     justifyContent: "center",
+    marginTop: 10,
   },
   buttonText: {
-    fontFamily: "Helvetica",
-    fontSize: 40,
+    fontFamily: "Arial",
+    fontSize: 30,
   },
 });
