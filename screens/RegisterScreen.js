@@ -10,7 +10,7 @@ export default function RegisterScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../assets/logo.png")}
+        source={require("../assets/logo_nobg.png")}
         style={{
           width: 300,
           height: 300,
