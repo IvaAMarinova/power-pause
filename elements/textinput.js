@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
+import { sp, dp } from "../utils";
 
 export default function FlatTextInput({
   secureTextEntry,
@@ -22,16 +23,16 @@ export default function FlatTextInput({
 
 const styles = StyleSheet.create({
   textInput: {
-    paddingLeft: 5,
-    paddingRight: 20,
-    paddingVertical: 16,
+    paddingLeft: dp(5),
+    paddingRight: dp(20),
+    paddingVertical: dp(16),
     backgroundColor: "#F5F5F5",
-    borderRadius: 15,
+    borderRadius: dp(15),
     borderColor: "#DBDBDB", //#3C3C3C
     borderStyle: "solid",
-    borderWidth: 1,
+    borderWidth: dp(1),
     justifyContent: "left",
-    marginBottom: 5,
+    marginBottom: dp(5),
     hadowColor: "rgba(0,0,0, .4)", // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
