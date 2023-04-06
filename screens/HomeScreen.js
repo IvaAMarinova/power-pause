@@ -1,28 +1,35 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, Button, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import ProfileButton from "../elements/profilebutton";
+import FlatButton from "../elements/button";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={styles.containerLeft}>
-        <ProfileButton onPress={() => navigation.navigate("LoginScreen")} />
+      <View style={styles.containerRight}>
+        <ProfileButton onPress={() => navigation.navigate("ProfileScreen")} />
       </View>
-      <Text>Powerpause</Text>
+      <View style={{flex: 2}}>
+        <FlatButton
+          text={"JUST DRIVE"}
+          onPress={() => navigation.navigate("NewRouteScreen")}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  containerRight: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
+    justifyContent: "right",
+  },
   container: {
     flex: 1,
-    backgroundColor: "##F5F5F5",
+    backgroundColor: "#F5F5F5",
     alignItems: "center",
     justifyContent: "center",
-  },
-  containerLeft: {
-    flex: 1,
-    backgroundColor: "##F5F5F5",
   },
 });

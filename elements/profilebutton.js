@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     justifyContent: "center",
-    marginTop: 8,
     shadowColor: "rgba(0,0,0, .4)", // IOS
     shadowOffset: { height: 1, width: 1 }, // IOS
     shadowOpacity: 1, // IOS
     shadowRadius: 1, //IOS
     elevation: 2, // Android
+    marginTop: 8,
     marginLeft: 1810,
   },
 });
