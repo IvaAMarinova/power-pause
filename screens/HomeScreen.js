@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import ProfileButton from "../elements/profilebutton";
 import JDButton from "../elements/JDButton";
 import CarVisualized from "../elements/CarVisualized";
+import BatteryBar from "../elements/BatteryBar";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -12,6 +13,7 @@ export default function HomeScreen({ navigation }) {
       </View>
       <CarVisualized/>
       <View style={{flex: 4}}>
+      {/*<BatteryBar/> */}
       <JDButton/>
       </View>
       <StatusBar style="auto" />

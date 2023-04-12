@@ -12,9 +12,8 @@ export default function JDButton() {
 
 const styles = StyleSheet.create({
   image: {
-    width: 300, // adjust the size to your liking
+    width: 300,
     height: 100,
-    alignSelf: "center", // center the image horizontally
-    //marginTop: 10, // add margin to separate the image from other elements
+    alignSelf: "center", 
   },
 });
