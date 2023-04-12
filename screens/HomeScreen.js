@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   containerRight: {
     flex: 1,
     backgroundColor: "#F5F5F5",
-    justifyContent: "right",
+    justifyContent: "center",
   },
   container: {
     flex: 1,
