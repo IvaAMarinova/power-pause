@@ -1,0 +1,10 @@
+JDbutton {
+    flex-direction: 'row';
+    align-items: 'center';
+    background-color: '#dc4e41';
+    border-width: 0.5;
+    border-color: '#fff';
+    height: 40;
+    border-radius: 5;
+    margin: 5;
+}

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     elevation: 2, // Android
   },
   buttonText: {
-    fontFamily: "Arial",
+    fontFamily: "Sans-serif",
     fontSize: sp(30),
   },
 });
