@@ -30,7 +30,7 @@ export default function App() {
         <Stack.Screen
           name="ProfileScreen"
           component={ProfileScreen}
-          options={{ title: "Profile" }}
+          options={{ title: "" }}
         />
         {/* <Stack.Screen
           name="MapScreen"
