@@ -32,11 +32,11 @@ export default function App() {
           component={ProfileScreen}
           options={{ title: "Profile" }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="MapScreen"
           component={MapScreen}
           options={{ title: "New Destination" }}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

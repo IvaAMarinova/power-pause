@@ -12,7 +12,7 @@ export default function ProfileButton({ onPress }) {
                 width: 80,
                 height: 80,
                 margin: 1
-            }} 
+            }}  
         />
       </View>
     </TouchableOpacity>
