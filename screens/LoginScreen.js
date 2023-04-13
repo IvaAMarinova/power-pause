@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import FlatButton from "../elements/FlatButton";
-import FlatTextInput from "../elements/textinput";
+import FlatTextInput from "../elements/FlatTextInput";
 
 export default function LoginScreen({ navigation }) {
   const [text, setText] = useState("");

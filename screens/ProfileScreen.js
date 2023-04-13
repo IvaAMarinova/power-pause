@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, Button, View } from "react-native";
-import ProfileButton from "../elements/profilebutton";
+import ProfileButton from "../elements/ProfileButton";
 
 export default function ProfileScreen() {
     return (

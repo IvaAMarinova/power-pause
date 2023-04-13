@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
-import ProfileButton from "../elements/profilebutton";
+import ProfileButton from "../elements/ProfileButton";
 import JDButton from "../elements/JDButton";
 import CarVisualized from "../elements/CarVisualized";
 import BatteryBar from "../elements/BatteryBar";
@@ -11,10 +11,10 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.containerRight}>
         <ProfileButton onPress={() => navigation.navigate("ProfileScreen")} />
       </View>
-      <CarVisualized/>
-      <View style={{flex: 4}}>
-      {/*<BatteryBar/> */}
-      <JDButton/>
+      <CarVisualized />
+      <View style={{ flex: 4 }}>
+        {/*<BatteryBar/> */}
+        <JDButton onPress={() => navigation.navigate("MapScreen")} />
       </View>
       <StatusBar style="auto" />
     </View>
