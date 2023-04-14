@@ -30,8 +30,4 @@ const styles = StyleSheet.create({
     shadowRadius: 1, //IOS
     elevation: 2, // Android
   },
-  buttonText: {
-    fontFamily: "Sans-serif",
-    fontSize: sp(30),
-  },
 });

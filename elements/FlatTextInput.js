@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     paddingVertical: dp(16),
     backgroundColor: "#F5F5F5",
     borderRadius: dp(15),
-    borderColor: "#DBDBDB", //#3C3C3C
+    borderColor: "#DBDBDB",
+    borderWidth: 1,
     borderStyle: "solid",
-    borderWidth: dp(1),
     justifyContent: "center",
     marginBottom: dp(5),
     shadowColor: "rgba(0,0,0, .4)", // IOS
