@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity} from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatButton from "../elements/FlatButton";
 import FlatTextInput from "../elements/FlatTextInput";
 
@@ -33,7 +33,7 @@ export default function LoginScreen({ navigation }) {
         />
         <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
           <View style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Login</Text>
           </View>
         </TouchableOpacity>
       </View>

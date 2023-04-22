@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatTextInput from "../elements/FlatTextInput";
+//import "../backend/MySQLConnector"
 
 export default function RegisterScreen({ navigation }) {
   const [text, setText] = useState("");
