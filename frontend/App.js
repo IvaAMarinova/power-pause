@@ -5,7 +5,7 @@ import HomeScreen from "./screens/HomeScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import HobbiesSelectScreen from "./screens/HobbiesSelectScreen";
-//import MapScreen from "./screens/MapScreen";
+
 
 const Stack = createNativeStackNavigator();
 

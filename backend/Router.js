@@ -1,10 +1,12 @@
-import express from 'express'
+import express from 'express';
+import cors from 'cors';
 import { createUser, getUserByEmail, getUserByID, getUserPassword, getUsers } from './Database.js'
 
 const app = express()
 const port = 8080
 
 app.use(express.json())
+app.use(cors());
 
 //testovo
 app.get("/users", async (req, res) => {

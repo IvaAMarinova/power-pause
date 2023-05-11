@@ -1,12 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatButton from "../elements/FlatButton";
 import FlatTextInput from "../elements/FlatTextInput";
+import Api from "../api/Api";
+
 
 export default function LoginScreen({ navigation }) {
-  const [text, setText] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(0)
+  const filterUsers = async () => {
+    const allUsers = await Api.getAll()
+    setUser(allUsers)
+  }
+
+  useEffect(() => {
+    filterUsers()
+  }, [])
+
   return (
     <View style={styles.container}>
       <Image
@@ -21,15 +31,11 @@ export default function LoginScreen({ navigation }) {
         <FlatTextInput
           style={styles.input}
           placeholder="Email"
-          onChangeText={(newText) => setText(newText)}
-          defaultValue={text}
         />
         <FlatTextInput
           style={styles.input}
           secureTextEntry={true}
           placeholder="Password"
-          onChangeText={(newPassword) => setPassword(newPassword)}
-          defaultValue={password}
         />
         <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
           <View style={styles.button}>
@@ -40,6 +46,7 @@ export default function LoginScreen({ navigation }) {
       <Text style={styles.link} onPress={() => navigation.navigate("RegisterScreen")}>
         Don't have an account?
       </Text>
+      <Text> {user} </Text>
       <StatusBar style="auto" />
     </View>
   );
