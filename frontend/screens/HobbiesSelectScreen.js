@@ -24,34 +24,64 @@ export default function RegisterScreen({ navigation }) {
         <Text style={styles.hobbiesText}>What are your hobbies?</Text>
         <View style={styles.buttonRow}>
           <TouchableOpacity onPress={() => handleButtonClick(1)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(1) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(1) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Cafe</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleButtonClick(2)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(2) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(2) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Parks</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleButtonClick(3)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(3) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(3) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Mall</Text>
             </View>
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>
           <TouchableOpacity onPress={() => handleButtonClick(4)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(4) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(4) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Restaurants</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleButtonClick(5)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(5) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(5) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Books</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleButtonClick(6)}>
-            <View style={[styles.buttonHobbie, isButtonClicked(6) && styles.clickedButton]}>
+            <View
+              style={[
+                styles.buttonHobbie,
+                isButtonClicked(6) && styles.clickedButton,
+              ]}
+            >
               <Text style={styles.buttonText}>Bars</Text>
             </View>
           </TouchableOpacity>
@@ -94,8 +124,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     borderColor: "#DBDBDB",
     borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   clickedButton: {
     backgroundColor: "#4DAA57",
@@ -114,27 +144,27 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     marginBottom: 10,
-    width: '100%',
+    width: "100%",
   },
   hobbiesContainer: {
-    backgroundColor: '#E8E8E8',
+    backgroundColor: "#E8E8E8",
     borderRadius: 5,
     padding: 15,
-    width: '80%',
+    width: "80%",
     marginVertical: 10,
     borderWidth: 1,
-    borderColor: '#DBDBDB',
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderColor: "#DBDBDB",
+    alignItems: "center",
+    justifyContent: "center",
   },
   hobbiesText: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 10,
-    textAlign: 'center',
-  }
+    textAlign: "center",
+  },
 });

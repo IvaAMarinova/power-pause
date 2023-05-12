@@ -6,7 +6,6 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import HobbiesSelectScreen from "./screens/HobbiesSelectScreen";
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {

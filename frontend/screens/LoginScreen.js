@@ -3,19 +3,33 @@ import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatButton from "../elements/FlatButton";
 import FlatTextInput from "../elements/FlatTextInput";
-import Api from "../api/Api";
+import apiClient from "../api/Client";
 
+export var USER;
 
 export default function LoginScreen({ navigation }) {
-  const [user, setUser] = useState(0)
-  const filterUsers = async () => {
-    const allUsers = await Api.getAll()
-    setUser(allUsers)
-  }
+  const [user, setUser] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
 
-  useEffect(() => {
-    filterUsers()
-  }, [])
+  const handleSubmit = async () => {
+    try {
+      const response = await apiClient.post("/login", {
+        EMAIL: email,
+        PASSWORD: password,
+      });
+      setUser(JSON.stringify(response.data));
+      USER = response.data;
+      console.log(USER.FIRST_NAME);
+      navigation.navigate("HomeScreen");
+      return JSON.stringify(response.data);
+    } catch (error) {
+      console.log(error.response);
+      setErr(error.response.data);
+      return 0;
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -31,22 +45,29 @@ export default function LoginScreen({ navigation }) {
         <FlatTextInput
           style={styles.input}
           placeholder="Email"
+          onChangeText={(email) => setEmail(email)}
+          defaultValue={email}
         />
         <FlatTextInput
           style={styles.input}
           secureTextEntry={true}
           placeholder="Password"
+          onChangeText={(password) => setPassword(password)}
+          defaultValue={password}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+        <TouchableOpacity onPress={handleSubmit}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>Login</Text>
           </View>
         </TouchableOpacity>
       </View>
-      <Text style={styles.link} onPress={() => navigation.navigate("RegisterScreen")}>
+      <Text style={styles.red}>{err}</Text>
+      <Text
+        style={styles.link}
+        onPress={() => navigation.navigate("RegisterScreen")}
+      >
         Don't have an account?
       </Text>
-      <Text> {user} </Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -85,9 +106,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: "#087e8b",
   },
+  red: {
+    color: "#F23535",
+  },
   buttonText: {
     textAlign: "center",
     color: "black",
     fontWeight: "bold",
-  }
+  },
 });

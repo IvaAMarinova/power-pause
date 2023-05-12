@@ -1,43 +1,52 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, Button, View, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Button,
+  View,
+  Image,
+  ScrollView,
+} from "react-native";
 import ProfileButton from "../elements/ProfileButton";
 
 export default function ProfileScreen() {
-    return (
-      <ScrollView>
-        <View style={styles.grayContainer}>
-            <Image 
-              style={styles.profileImage}
-              source={require("../assets/hardcoded/pfp_hardcoded.jpg")}
-            />
-            <Text 
-              style={styles.profileName}
-            >
-              Nikolay Nekov
-            </Text>
-            <Image 
-                style={styles.carImage}
-                source={require("../assets/cars/tesla-car2.png")}
-            />
+  return (
+    <ScrollView>
+      <View style={styles.grayContainer}>
+        <Image
+          style={styles.profileImage}
+          source={require("../assets/hardcoded/pfp_hardcoded.jpg")}
+        />
+        <Text style={styles.profileName}>Nikolay Nekov</Text>
+        <Image
+          style={styles.carImage}
+          source={require("../assets/cars/tesla-car2.png")}
+        />
 
-            <Text style={[styles.statsLabel, { textAlign: "center" }]}>Kilometers Driven with PowerPause:</Text>
-            <Text style={[styles.statsValue, { textAlign: "center" }]}>1000</Text>
-            <Text style={[styles.statsLabel, { textAlign: "center" }]}>Money saved:</Text>
-            <Text style={[styles.statsValue, { textAlign: "center" }]}>1232 lv</Text>
-            
-            <View style={styles.accomplishmentsContainer}>
-                <Image 
-                    style={[styles.accomplishmentImage]}
-                    source={require("../assets/accomplishments/first_cafe.png")}
-                />
-                <Image 
-                    style={[styles.accomplishmentImage]}
-                    source={require("../assets/accomplishments/police.png")}
-                />
-            </View>
+        <Text style={[styles.statsLabel, { textAlign: "center" }]}>
+          Kilometers Driven with PowerPause:
+        </Text>
+        <Text style={[styles.statsValue, { textAlign: "center" }]}>1000</Text>
+        <Text style={[styles.statsLabel, { textAlign: "center" }]}>
+          Money saved:
+        </Text>
+        <Text style={[styles.statsValue, { textAlign: "center" }]}>
+          1232 lv
+        </Text>
+
+        <View style={styles.accomplishmentsContainer}>
+          <Image
+            style={[styles.accomplishmentImage]}
+            source={require("../assets/accomplishments/first_cafe.png")}
+          />
+          <Image
+            style={[styles.accomplishmentImage]}
+            source={require("../assets/accomplishments/police.png")}
+          />
         </View>
-      </ScrollView>
-    );
+      </View>
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({

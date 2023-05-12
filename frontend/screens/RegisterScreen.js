@@ -2,11 +2,37 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatTextInput from "../elements/FlatTextInput";
-//import "../backend/MySQLConnector"
+import apiClient from "../api/Client";
+
+export var USER;
 
 export default function RegisterScreen({ navigation }) {
-  const [text, setText] = useState("");
+  const [user, setUser] = useState(0);
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await apiClient.post("/register", {
+        FIRST_NAME: fname,
+        LAST_NAME: lname,
+        EMAIL: email,
+        PASSWORD: password,
+      });
+      setUser(JSON.stringify(response.data));
+      USER = response.data;
+      navigation.navigate("HobbiesSelectScreen");
+      return JSON.stringify(response.data);
+    } catch (error) {
+      console.log(error.response);
+      setErr(error.response.data);
+      return 0;
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -20,31 +46,34 @@ export default function RegisterScreen({ navigation }) {
       <View style={styles.inputContainer}>
         <FlatTextInput
           placeholder="First Name"
-          onChangeText={(newText) => setText(newText)}
-          defaultValue={text}
+          onChangeText={(fname) => setFname(fname)}
+          defaultValue={fname}
         />
         <FlatTextInput
           placeholder="Last Name"
-          onChangeText={(newText) => setText(newText)}
-          defaultValue={text}
+          onChangeText={(lname) => setLname(lname)}
+          defaultValue={lname}
         />
         <FlatTextInput
           placeholder="Email"
-          onChangeText={(newText) => setText(newText)}
-          defaultValue={text}
+          onChangeText={(email) => setEmail(email)}
+          defaultValue={email}
         />
         <FlatTextInput
           secureTextEntry={true}
           placeholder="Password"
-          onChangeText={(newPassword) => setPassword(newPassword)}
+          onChangeText={(password) => setPassword(password)}
           defaultValue={password}
         />
-        <TouchableOpacity onPress={() => navigation.navigate("HobbiesSelectScreen")}>
+        <TouchableOpacity
+          onPress={handleSubmit}
+        >
           <View style={styles.button}>
-          <Text style={styles.buttonText}>Register</Text>
+            <Text style={styles.buttonText}>Register</Text>
           </View>
         </TouchableOpacity>
       </View>
+      <Text style={styles.red}> {err} </Text>
       <Text style={styles.link} onPress={() => navigation.pop()}>
         Already have an account?
       </Text>
@@ -82,6 +111,9 @@ const styles = StyleSheet.create({
     borderColor: "#DBDBDB",
     borderWidth: 1,
   },
+  red: {
+    color: "#F23535",
+  },
   link: {
     marginTop: 20,
     color: "#087e8b",
@@ -90,5 +122,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
     fontWeight: "bold",
-  }
+  },
 });
