@@ -71,7 +71,8 @@ app.post("/register", async (req, res) => {
     return;
   }
   const user = await createUser(FIRST_NAME, LAST_NAME, EMAIL, PASSWORD);
-  res.status(201).send(user);
+  const returned_user = await getUserByEmail(EMAIL);
+  res.status(201).send(returned_user);
 });
 
 app.listen(port, () => {
