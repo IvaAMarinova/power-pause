@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatTextInput from "../elements/FlatTextInput";
 import apiClient from "../api/Client";
 
-export var USER;
 
 export default function RegisterScreen({ navigation }) {
   const [user, setUser] = useState(0);
@@ -22,10 +21,10 @@ export default function RegisterScreen({ navigation }) {
         EMAIL: email,
         PASSWORD: password,
       });
+      localStorage.setItem("user", response.data);
       setUser(JSON.stringify(response.data));
-      USER = response.data;
       navigation.navigate("HobbiesSelectScreen");
-      return JSON.stringify(response.data);
+      return response.data;
     } catch (error) {
       console.log(error.response);
       setErr(error.response.data);
@@ -81,6 +80,7 @@ export default function RegisterScreen({ navigation }) {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

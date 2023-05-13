@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ProfileButton from "../elements/ProfileButton";
 
+
 export default function ProfileScreen() {
   return (
     <ScrollView>
@@ -17,7 +18,7 @@ export default function ProfileScreen() {
           style={styles.profileImage}
           source={require("../assets/hardcoded/pfp_hardcoded.jpg")}
         />
-        <Text style={styles.profileName}>Nikolay Nekov</Text>
+        <Text style={styles.profileName}>{localStorage.getItem("user").FIRST_NAME} {localStorage.getItem("user").LAST_NAME}</Text>
         <Image
           style={styles.carImage}
           source={require("../assets/cars/tesla-car2.png")}
