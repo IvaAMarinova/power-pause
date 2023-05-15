@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     shadowRadius: 1, //IOS
     elevation: 2, // Android
     marginTop: dp(8),
-    marginLeft: dp(1810),
+    marginLeft: dp(0),
   },
 });
