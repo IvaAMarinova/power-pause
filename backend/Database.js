@@ -1,11 +1,13 @@
 import mysql from "mysql2";
+import * as dotenv from "dotenv"; 
+dotenv.config()
 
 const pool = mysql
   .createPool({
     host: "db4free.net",
-    user: "powerpause",
-    password: "powerpause1213",
-    database: "powerpausedev",
+    user: process.env.MYSQL_PASSWORD,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
   })
   .promise();
 

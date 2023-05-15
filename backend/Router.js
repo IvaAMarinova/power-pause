@@ -7,6 +7,8 @@ import {
   getUserPassword,
   getUsers,
 } from "./Database.js";
+import * as dotenv from "dotenv"; 
+dotenv.config()
 
 const app = express();
 const port = 8080;
@@ -71,9 +73,10 @@ app.post("/register", async (req, res) => {
     return;
   }
   const user = await createUser(FIRST_NAME, LAST_NAME, EMAIL, PASSWORD);
-  res.status(201).send(user);
+  const returned_user = await getUserByEmail(EMAIL);
+  res.status(201).send(returned_user);
 });
 
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+  console.log(`App listening at http://${process.env.SERVER_IP}:${port}`);
 });

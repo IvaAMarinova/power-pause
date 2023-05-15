@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import FlatButton from "../elements/FlatButton";
 import FlatTextInput from "../elements/FlatTextInput";
 import apiClient from "../api/Client";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export var USER;
 
 export default function LoginScreen({ navigation }) {
   const [user, setUser] = useState(0);
@@ -19,11 +19,10 @@ export default function LoginScreen({ navigation }) {
         EMAIL: email,
         PASSWORD: password,
       });
+      AsyncStorage.setItem("user", JSON.stringify(response.data));
       setUser(JSON.stringify(response.data));
-      USER = response.data;
-      console.log(USER.FIRST_NAME);
       navigation.navigate("HomeScreen");
-      return JSON.stringify(response.data);
+      return response.data;
     } catch (error) {
       console.log(error.response);
       setErr(error.response.data);

@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,8 +9,23 @@ import {
   ScrollView,
 } from "react-native";
 import ProfileButton from "../elements/ProfileButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 export default function ProfileScreen() {
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+
+  try {
+    const USER = AsyncStorage.getItem("user").then((user) => {
+      console.log(user);
+      setFname(JSON.parse(user).FIRST_NAME);
+      setLname(JSON.parse(user).LAST_NAME);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <ScrollView>
       <View style={styles.grayContainer}>
@@ -17,7 +33,7 @@ export default function ProfileScreen() {
           style={styles.profileImage}
           source={require("../assets/hardcoded/pfp_hardcoded.jpg")}
         />
-        <Text style={styles.profileName}>Nikolay Nekov</Text>
+        <Text style={styles.profileName}>{fname} {lname}</Text>
         <Image
           style={styles.carImage}
           source={require("../assets/cars/tesla-car2.png")}
