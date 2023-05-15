@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import ProfileButton from "../elements/ProfileButton";
 import JDButton from "../elements/JDButton";
 import CarVisualized from "../elements/CarVisualized";
-import BatteryBar from "../elements/BatteryBar";
+import { ProgressBar } from 'react-native-progress';
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
       </View>
       <CarVisualized />
       <View style={{ flex: 4 }}>
-        {/*<BatteryBar/> */}
+        <ProgressBar progress={0.5} />
         <JDButton onPress={() => navigation.navigate("MapScreen")} />
       </View>
       <StatusBar style="auto" />
@@ -33,4 +33,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  progressBar: {
+    width: '80%',
+    marginTop: 20,
+  }
 });

@@ -16,6 +16,7 @@ export default function RegisterScreen({ navigation }) {
 
   const handleSubmit = async () => {
     try {
+      console.log('handleSubmit called!');
       const response = await apiClient.post("/register", {
         FIRST_NAME: fname,
         LAST_NAME: lname,
@@ -24,7 +25,7 @@ export default function RegisterScreen({ navigation }) {
       });
       setUser(JSON.stringify(response.data));
       USER = response.data;
-      navigation.navigate("HobbiesSelectScreen");
+      navigation.navigate("HomeScreen");
       return JSON.stringify(response.data);
     } catch (error) {
       console.log(error.response);
