@@ -1,6 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, {
+  Callout,
+  Marker,
+  PROVIDER_GOOGLE,
+  PROVIDER_DEFAULT,
+  Polyline,
+} from "react-native-maps";
 import {
   StyleSheet,
   View,
@@ -64,7 +70,7 @@ export default function DestinationSelectScreen({ navigation }) {
       </View>
       <MapView
         style={styles.map}
-        provider={PROVIDER_GOOGLE}
+        provider={PROVIDER_DEFAULT}
         onUserLocationChange={(e) => {
           setUserPin({
             latitude: e.nativeEvent.coordinate.latitude,
@@ -74,6 +80,7 @@ export default function DestinationSelectScreen({ navigation }) {
       >
         <Marker coordinate={userPin} pinColor="green" />
         <Marker coordinate={destinationPin} />
+        <Polyline coordinates={[userPin, destinationPin]} geodesic={true} />
       </MapView>
     </View>
   );

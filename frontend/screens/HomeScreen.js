@@ -10,12 +10,15 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <View style={styles.containerRight}>
         <ProfileButton onPress={() => navigation.navigate("ProfileScreen")} />
+      </View>
+      <CarVisualized />
+      <View style={{ flex: 3}}>
         <JDButton
           onPress={() => navigation.navigate("DestinationSelectScreen")}
         />
+        {/*<ProgressBar progress={0.5} />*/}
       </View>
-      <CarVisualized />
-      <View style={{ flex: 4 }}>{/*<ProgressBar progress={0.5} />*/}</View>
+
       <StatusBar style="auto" />
     </View>
   );

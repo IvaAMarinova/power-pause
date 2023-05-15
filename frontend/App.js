@@ -41,6 +41,7 @@ export default function App() {
         <Stack.Screen
           name="DestinationSelectScreen"
           component={DestinationSelectScreen}
+          options={{title: "Select Destination"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
