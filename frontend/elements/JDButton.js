@@ -7,7 +7,7 @@ export default function JDButton({ text, onPress }) {
   return (
     <TouchableOpacity activeOpacity={0.5}>
       <Image
-        source={require(`../assets/JUSTDRIVE_circle.png`)}
+        source={require(`../assets/JD_but.png`)}
         style={styles.button}
       />
     </TouchableOpacity>
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: dp(400),
     height: dp(400),
-    marginTop: dp(800),
     shadowColor: "rgba(0,0,0, .4)",
     shadowOffset: { height: 1, width: 1 },
     shadowOpacity: 1,

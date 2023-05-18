@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, TouchableOpacity, View, Image } from "react-native";
-import { sp, dp } from "../utils";
+import { dp } from "../utils";
 
 export default function ProfileButton({ onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
-        <Image 
-            source={require("../assets/profile_image.png")}
-            style={{
-                width: 80,
-                height: 80,
-                margin: 1
-            }}  
+        <Image
+          source={require("../assets/profile_image.png")}
+          style={{
+            width: 60,
+            height: 60,
+          }}
         />
       </View>
     </TouchableOpacity>
@@ -23,19 +22,19 @@ const styles = StyleSheet.create({
   button: {
     paddingHorizontal: dp(5),
     paddingVertical: dp(5),
-    //backgroundColor: isActive ? "#087E8B" : "#F5F5F5",
     backgroundColor: "#F5F5F5",
     borderRadius: dp(100),
-    borderColor: "#DBDBDB", //#3C3C3C
+    borderColor: "#DBDBDB",
     borderStyle: "solid",
     borderWidth: dp(1),
     justifyContent: "center",
-    shadowColor: "rgba(0,0,0, .4)", // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    elevation: 2, // Android
+    shadowColor: "rgba(0,0,0, .4)",
+    shadowOffset: { height: 1, width: 1 },
+    shadowOpacity: 1,
+    shadowRadius: 1,
+    elevation: 2,
     marginTop: dp(8),
     marginLeft: dp(0),
+    marginBottom: dp(10),
   },
 });

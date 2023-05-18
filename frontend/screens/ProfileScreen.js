@@ -42,22 +42,18 @@ export default function ProfileScreen() {
         <Text style={[styles.statsLabel, { textAlign: "center" }]}>
           Kilometers Driven with PowerPause:
         </Text>
-        <Text style={[styles.statsValue, { textAlign: "center" }]}>1000</Text>
+        <Text style={[styles.statsValue, { textAlign: "center" }]}> None </Text>
         <Text style={[styles.statsLabel, { textAlign: "center" }]}>
           Money saved:
         </Text>
         <Text style={[styles.statsValue, { textAlign: "center" }]}>
-          1232 lv
+          100 lv
         </Text>
 
         <View style={styles.accomplishmentsContainer}>
           <Image
             style={[styles.accomplishmentImage]}
-            source={require("../assets/accomplishments/first_cafe.png")}
-          />
-          <Image
-            style={[styles.accomplishmentImage]}
-            source={require("../assets/accomplishments/police.png")}
+            source={require("../assets/accomplishments/new_user.png")}
           />
         </View>
       </View>

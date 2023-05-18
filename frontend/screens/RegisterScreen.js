@@ -25,7 +25,7 @@ export default function RegisterScreen({ navigation }) {
       });
       AsyncStorage.setItem("user", JSON.stringify(response.data));
       setUser(JSON.stringify(response.data));
-      navigation.navigate("HobbiesSelectScreen");
+      navigation.navigate("HomeScreen");
       return response.data;
     } catch (error) {
       console.log(error.response);
