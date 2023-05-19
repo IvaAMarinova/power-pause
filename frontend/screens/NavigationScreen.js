@@ -1,12 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import MapView, {
-  Callout,
-  Marker,
-  PROVIDER_GOOGLE,
-  PROVIDER_DEFAULT,
-  Polyline,
-} from "react-native-maps";
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapViewDirections from "react-native-maps-directions";
 import {
   StyleSheet,
   View,
@@ -16,11 +11,11 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import FlatTextInput from "../elements/FlatTextInput";
 import * as Location from "expo-location";
+import FlatTextInput from "../elements/FlatTextInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function DestinationSelectScreen({ navigation }) {
+export default function App() {
   const [userPin, setUserPin] = useState({
     latitude: 0,
     longitude: 0,
@@ -38,8 +33,6 @@ export default function DestinationSelectScreen({ navigation }) {
       latitude: geocodedLocation[0].latitude,
       longitude: geocodedLocation[0].longitude,
     });
-    AsyncStorage.setItem("destination", JSON.stringify(destinationPin));
-    console.log(JSON.stringify(destinationPin));
   };
 
   useEffect(() => {
@@ -57,30 +50,24 @@ export default function DestinationSelectScreen({ navigation }) {
     })();
   }, []);
 
+  try {
+    const DESTINATION = AsyncStorage.getItem("destination").then(
+      (destination) => {
+        console.log(destination);
+        setDestinationPin(JSON.parse(destination));
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <View style={styles.container}>
-      <View>
-        <FlatTextInput
-          style={styles.input}
-          defaultValue={destination}
-          onChangeText={setDestination}
-        />
-        <TouchableOpacity onPress={geocode}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Set destination</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("NavigationScreen")}
-        >
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Just Drive!</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
+        showsUserLocation={true}
+        followsUserLocation={true}
         onUserLocationChange={(e) => {
           setUserPin({
             latitude: e.nativeEvent.coordinate.latitude,
@@ -88,9 +75,13 @@ export default function DestinationSelectScreen({ navigation }) {
           });
         }}
       >
-        <Marker coordinate={userPin} pinColor="green" />
         <Marker coordinate={destinationPin} />
-        <Polyline coordinates={[userPin, destinationPin]} geodesic={true} />
+        <MapViewDirections
+          origin={userPin}
+          destination={destinationPin}
+          apikey="AIzaSyAsX__F5u5NXlRtrV2xCwcfhiY5-0jV3iQ"
+          mode="DRIVING"
+        />
       </MapView>
     </View>
   );
@@ -102,7 +93,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: "100%",
-    height: "84%",
+    height: "100%",
   },
   input: {
     backgroundColor: "#FFFFFF",

@@ -6,6 +6,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import HobbiesSelectScreen from "./screens/HobbiesSelectScreen";
 import DestinationSelectScreen from "./screens/DestinationSelectScreen";
+import NavigationScreen from "./screens/NavigationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,11 @@ export default function App() {
           name="DestinationSelectScreen"
           component={DestinationSelectScreen}
           options={{title: "Select Destination"}}
+        />
+        <Stack.Screen
+          name="NavigationScreen"
+          component={NavigationScreen}
+          options={{title: "Navigation"}}
         />
       </Stack.Navigator>
     </NavigationContainer>
